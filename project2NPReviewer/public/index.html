@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>National Parks Finder</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="css/heroic-features.css" rel="stylesheet" />
+
+    <!-- Added link to custom search bar CSS -->
+    <link href="css/search-filter.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#"
+          >SOMETHING CREATIVE WILL GO HERE WHEN I THINK OF IT</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarResponsive"
+          aria-controls="navbarResponsive"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#"
+                >Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Wishlist</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/blog">Reviews</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/reviewer">My Profile</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <br />
+    <!-- Park Search Bar by State w/ Amenities Filters -->
+    <div class="container">
+      <div class="row searchFilter">
+        <div class="col-sm-12">
+          <div class="input-group">
+            <input
+              id="table_filter"
+              type="text"
+              maxlength="2"
+              placeholder="Enter Two-Digit State Code"
+              class="form-control"
+              aria-label="Text input with segmented button dropdown"
+            />
+            <div class="input-group-btn">
+              <button
+                type="button"
+                class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <span class="label-icon">Category</span>
+                <span class="caret">&nbsp;</span>
+              </button>
+              <div class="dropdown-menu dropdown-menu-right">
+                <ul class="category_filters">
+                  <li>
+                    <input
+                      class="cat_type category-input"
+                      data-label="All"
+                      id="all"
+                      value=""
+                      name="radios"
+                      type="radio"
+                    /><label for="all">All</label>
+                  </li>
+                  <li>
+                    <input
+                      type="radio"
+                      name="radios"
+                      id="Biking"
+                      value="Biking"
+                    /><label class="category-label" for="Biking">Biking</label>
+                  </li>
+                  <li>
+                    <input
+                      type="radio"
+                      name="radios"
+                      id="Boating"
+                      value="Boating"
+                    /><label class="category-label" for="Boating"
+                      >Boating</label
+                    >
+                  </li>
+                  <li>
+                    <input
+                      type="radio"
+                      name="radios"
+                      id="Camping"
+                      value="Camping"
+                    /><label class="category-label" for="Camping"
+                      >Camping</label
+                    >
+                  </li>
+                  <li>
+                    <input
+                      type="radio"
+                      name="radios"
+                      id="Fishing"
+                      value="Fishing"
+                    /><label class="category-label" for="Fishing"
+                      >Fishing</label
+                    >
+                  </li>
+                  <li>
+                    <input
+                      type="radio"
+                      name="radios"
+                      id="Hiking"
+                      value="Hiking"
+                    /><label class="category-label" for="Hiking">Hiking</label>
+                  </li>
+                  <li>
+                    <input
+                      type="radio"
+                      name="radios"
+                      id="Swimming"
+                      value="Swimming"
+                    /><label class="category-label" for="Swimming"
+                      >Swimming</label
+                    >
+                  </li>
+                </ul>
+              </div>
+              <button
+                id="searchBtn"
+                type="button"
+                class="btn btn-secondary btn-search"
+              >
+                <span class="glyphicon glyphicon-search">&nbsp;</span>
+                <span class="label-icon">Search</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Page Content -->
+    <div class="container">
+      <!-- Jumbotron Header -->
+      <header
+        class="jumbotron my-4"
+        style="background-image: url(https://www.fodors.com/wp-content/uploads/2017/10/joshua-tree-resize.jpg); background-size: 100%;"
+      >
+        <h1 class="display-3">Welcome!</h1>
+        <p class="lead">
+          National Parks Finder is a simple and effective resource serving all
+          of your recreational needs!
+        </p>
+        <a href="#" class="btn btn-primary btn-lg">Log In</a>
+      </header>
+
+      <!-- Page Features -->
+      <div class="row text-center">
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="card-body">
+            <h4 class="card-title">nationalPark1</h4>
+            <p class="card-text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Explicabo magni sapiente, tempore debitis beatae culpa natus
+              architecto.
+            </p>
+          </div>
+          <div class="card-footer">
+            <a href="#" class="btn btn-primary">Find Out More!</a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="card-body">
+            <h4 class="card-title">nationalPark2</h4>
+            <p class="card-text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Explicabo magni sapiente, tempore debitis beatae culpa natus
+              architecto.
+            </p>
+          </div>
+          <div class="card-footer">
+            <a href="#" class="btn btn-primary">Find Out More!</a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="card-body">
+            <h4 class="card-title">nationalPark3</h4>
+            <p class="card-text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Explicabo magni sapiente, tempore debitis beatae culpa natus
+              architecto.
+            </p>
+          </div>
+          <div class="card-footer">
+            <a href="#" class="btn btn-primary">Find Out More!</a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="card-body">
+            <h4 class="card-title">nationalPark4</h4>
+            <p class="card-text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Explicabo magni sapiente, tempore debitis beatae culpa natus
+              architecto.
+            </p>
+          </div>
+          <div class="card-footer">
+            <a href="#" class="btn btn-primary">Find Out More!</a>
+          </div>
+        </div>
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">
+          Copyright &copy; Henry W Johnson, Jan 2020
+        </p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
