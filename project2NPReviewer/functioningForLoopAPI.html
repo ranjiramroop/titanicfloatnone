@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>National Park Search</title>
+  </head>
+
+  <body>
+    <!-- National Park Search Box -->
+    <form id="state-search-form">
+      <!-- Label for Text Box -->
+      <label for="state-input">Type the two character State code</label>
+
+      <!-- Text Input Box -->
+      <input type="text" id="state-input" /><br />
+
+      <!-- Submit Button -->
+      <input id="select-state" type="submit" value="GO!" />
+    </form>
+
+    <!-- State Information -->
+    <div id="state-div"></div>
+  </body>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    function searchState(state) {
+      // Querying the bandsintown api for the selected state, the ?app_id parameter is required, but can equal anything
+      var queryURL =
+        "https://developer.nps.gov/api/v1/parks?stateCode=" +
+        state +
+        "&api_key=VQJk51h4AnpnFoFmihiBzfzraIjCVrU1CkqeRXXP";
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+      }).then(function(response) {
+        // Printing the entire object to console
+        console.log(response);
+
+        var numStates = $("#state-count").val();
+
+        for (var i = 0; i < response.data.length; i++) {
+          //     // Constructing HTML containing the state information
+          var stateName = $("<h1>").text(response.data[i].states);
+          var stateURL = $("<a>")
+            .attr("href", response.data[i].url)
+            .append(stateName);
+
+          var stateImage = $("<img>").attr("src", response.thumb_url);
+          var parkFullName = $("<h2>").text(
+            response.data[i].fullName + " is the name of this State Park"
+          );
+          var parkDescription = $("<h2>").text(
+            response.data[i].description + " is the description of this park"
+          );
+          var goTostate = $("<a>")
+            .attr("href", response.url)
+            .text("Add to Wishlist");
+
+          // Empty the contents of the state-div, append the new state content
+          //$("#state-div").empty();
+          $("#state-div").append(
+            stateURL,
+            stateImage,
+            parkFullName,
+            parkDescription,
+            goTostate
+          );
+        }
+      });
+    }
+
+    // Event handler for user clicking the select-state button
+    $("#select-state").on("click", function(event) {
+      // Preventing the button from trying to submit the form
+      event.preventDefault();
+      // Storing the state name
+      var inputstate = $("#state-input")
+        .val()
+        .trim();
+
+      // Running the searchState function(passing in the state as an argument)
+      searchState(inputstate);
+    });
+  </script>
+</html>
