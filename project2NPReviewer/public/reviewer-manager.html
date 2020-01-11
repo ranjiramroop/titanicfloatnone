@@ -1,34 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
 
-<head>
-	<meta charset="UTF-8">
-	<title>CMS - Express</title>
-	<!-- Latest compiled and minified CSS & JS -->
-	<link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/flatly/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="css/styles.css" media="screen" title="no title">
-	<script src="https://code.jquery.com/jquery.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-</head>
+    <title>National Parks Finder</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="css/heroic-features.css" rel="stylesheet" />
+
+    <!-- Added link to custom search bar CSS -->
+    <link href="css/search-filter.css" rel="stylesheet" />
+  </head>
 
 <body>
-	<div class="container">
-		<div class="row mt-4">
-      <div class="col-md-2 col-sm-2">
-        <a class="btn btn-light" href="/blog">Go to Blog</a>
-      </div>
-			<div class="col-md-2 col-sm-2">
-        <a class="btn btn-light" href="/cms">New Post</a>
-      </div>
-	</div>
-	<div class="row mt-4">
-		<div class="col-md-2 col-sm-2">
-		  <a class="btn btn-light" href="/#">Go to Home Page</a>
+	<!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+		<div class="container">
+		  <a class="navbar-brand" href="#"
+			>SOMETHING CREATIVE WILL GO HERE WHEN I THINK OF IT</a
+		  >
+		  <button
+			class="navbar-toggler"
+			type="button"
+			data-toggle="collapse"
+			data-target="#navbarResponsive"
+			aria-controls="navbarResponsive"
+			aria-expanded="false"
+			aria-label="Toggle navigation"
+		  >
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarResponsive">
+			<ul class="navbar-nav ml-auto">
+			  <li class="nav-item active">
+				<a class="nav-link" href="index.html"
+				  >Home
+				  <span class="sr-only">(current)</span>
+				</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" href="/wishlist.html">Wishlist</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" href="/blog.html">Reviews</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" href="/reviewer-manager.html">My Profile</a>
+			  </li>
+			</ul>
+		  </div>
 		</div>
-			  <div class="col-md-2 col-sm-2">
-		  <a class="btn btn-light" href="/#">Go to Wishlist</a>
+	  </nav>
+  
+	  <br />
+	  <!-- Park Search Bar by State w/ Amenities Filters -->
+	  <div class="container">
+		<div class="row searchFilter">
+		  <div class="col-sm-12">
+			<div class="input-group">
+			  <input
+				id="table_filter"
+				type="text"
+				maxlength="2"
+				placeholder="Enter Two-Digit State Code"
+				class="form-control"
+				aria-label="Text input with segmented button dropdown"
+			  />
+			  <div class="input-group-btn">
+				<button
+				  type="button"
+				  class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
+				  data-toggle="dropdown"
+				  aria-haspopup="true"
+				  aria-expanded="false"
+				>
+				  <span class="label-icon">Category</span>
+				  <span class="caret">&nbsp;</span>
+				</button>
+				<div class="dropdown-menu dropdown-menu-right">
+				  <ul class="category_filters">
+					<li>
+					  <input
+						class="cat_type category-input"
+						data-label="All"
+						id="all"
+						value=""
+						name="radios"
+						type="radio"
+					  /><label for="all">All</label>
+					</li>
+					<li>
+					  <input
+						type="radio"
+						name="radios"
+						id="Biking"
+						value="Biking"
+					  /><label class="category-label" for="Biking">Biking</label>
+					</li>
+					<li>
+					  <input
+						type="radio"
+						name="radios"
+						id="Boating"
+						value="Boating"
+					  /><label class="category-label" for="Boating"
+						>Boating</label
+					  >
+					</li>
+					<li>
+					  <input
+						type="radio"
+						name="radios"
+						id="Camping"
+						value="Camping"
+					  /><label class="category-label" for="Camping"
+						>Camping</label
+					  >
+					</li>
+					<li>
+					  <input
+						type="radio"
+						name="radios"
+						id="Fishing"
+						value="Fishing"
+					  /><label class="category-label" for="Fishing"
+						>Fishing</label
+					  >
+					</li>
+					<li>
+					  <input
+						type="radio"
+						name="radios"
+						id="Hiking"
+						value="Hiking"
+					  /><label class="category-label" for="Hiking">Hiking</label>
+					</li>
+					<li>
+					  <input
+						type="radio"
+						name="radios"
+						id="Swimming"
+						value="Swimming"
+					  /><label class="category-label" for="Swimming"
+						>Swimming</label
+					  >
+					</li>
+				  </ul>
+				</div>
+				<button
+				  id="searchBtn"
+				  type="button"
+				  class="btn btn-secondary btn-search"
+				>
+				  <span class="glyphicon glyphicon-search">&nbsp;</span>
+				  <span class="label-icon">Search</span>
+				</button>
+			  </div>
+			</div>
+		  </div>
 		</div>
 	  </div>
+<!-- End Nav Stuff -->  
+	<div class="btn-group d-flex justify-content-center" role="group" aria-label="Buttons bih">
+		<button type="button" class="btn btn-secondary" href="/blog">Blog</button>
+		<button type="button" class="btn btn-secondary" href="/cms">New Post</button>
+		<button type="button" class="btn btn-secondary" href ="/#">Home Page</button>
+		<button type="button" class="btn btn-secondary" href ="/#">Wishlist</button>
+	</div>
+	
 		<div class="row">
 			<div class="col-md-8 offset-md-2">
 				<div class="reviewer-container">
@@ -49,7 +197,7 @@
 									<td colspan="4">
 										<input placeholder="Enter a name" id="reviewer-name" type="text" />
 									</td>
-									<td><button type="submit" class="btn btn-success">Create Reviewer</button>
+									<td><button type="submit" class="btn btn-secondary btn-search">Create Reviewer</button>
 									</td>
 								</form>
 							</tr>

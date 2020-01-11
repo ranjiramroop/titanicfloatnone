@@ -30,4 +30,9 @@ module.exports = function(app) {
   app.get("/reviewer", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/reviewer-manager.html"));
   });
+
+  // wishlist route loads wishlist.html
+  app.get("/wishlist", function(req, res) {
+    res.sendFile(path.join(_dirname, "../public/wishlist.html"));
+  });
 };
