@@ -25,4 +25,15 @@ National Parks Finder utilizes a simple UI that allows users to search for natio
     *Express
     *MySQL
 
+## API Reference
+*National Park Service 
+    *http://developer.nps.gov/
 
+## Credits
+*Front End
+    *Henry Johnson
+    *Elia Facundo Orta Carrasco
+    *Baraka Ibrahim
+*Back End
+    *Ranji Ramroop
+    *Jonathan Carrasco
