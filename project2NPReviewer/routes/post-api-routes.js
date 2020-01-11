@@ -28,6 +28,11 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/api/wishlistpage", function(req, res) {
+    db.wishlists.findAll({}).then(function(dbPost) {
+      res.json(dbPost);
+    });
+  });
   // Get route for retrieving a single post
   app.get("/api/posts/:id", function(req, res) {
     // Here we add an "include" property to our options in our findOne query
@@ -48,6 +53,15 @@ module.exports = function(app) {
     db.Post.create(req.body).then(function(dbPost) {
       res.json(dbPost);
     });
+  });
+  app.post("/api/wishlist", function(req, res) {
+    db.wishlist
+      .create({
+        apiID: req.body.apiID
+      })
+      .then(function(dbPost) {
+        res.json(dbPost);
+      });
   });
 
   // DELETE route for deleting posts

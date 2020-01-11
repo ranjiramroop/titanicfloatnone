@@ -158,7 +158,8 @@
             </p>
           </div>
           <div class="card-footer">
-            <a href="` + response.data[i].url + `" target="_blank" class="btn btn-primary">Add to Wishlist</a>
+            <a href="` + response.data[i].url + `" target="_blank" class="btn btn-primary">Go to Website</a>
+            <btn class="btn btn-primary wishlist" value='${response.data[i].id}'>Save to Wishlist</btn>
           </div>
         </div>
         `;
@@ -172,7 +173,14 @@
         }
       });
     }
+$(document).on("click", ".wishlist", function (event){
+  event.preventDefault();
 
+  var data = {
+    apiID: $(this).attr("value")
+  }
+  $.post("/api/wishlist", data)
+})
     // Event handler for user clicking the select-state button
     $("#select-state").on("click", function(event) {
       // Preventing the button from trying to submit the form
