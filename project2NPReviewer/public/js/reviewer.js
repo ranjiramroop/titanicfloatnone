@@ -16,7 +16,7 @@ $(document).ready(function() {
     event.preventDefault();
     // Don't do anything if the name fields hasn't been filled out
     if (
-      !nameInput
+      !nameInput  
         .val()
         .trim()
         .trim()
