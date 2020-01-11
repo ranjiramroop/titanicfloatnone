@@ -66,9 +66,9 @@
     <div class="container">
       <div class="row searchFilter">
         <div class="col-sm-12">
-          <div class="input-group">
+          <div class="input-group"> <form id="state-search-form">
             <input
-              id="table_filter"
+              id="state-input"
               type="text"
               maxlength="2"
               placeholder="Enter Two-Digit State Code"
@@ -76,18 +76,22 @@
               aria-label="Text input with segmented button dropdown"
             />
               <button
-                id="searchBtn"
+                id="select-state"
                 type="button"
                 class="btn btn-secondary btn-search"
               >
                 <span class="glyphicon glyphicon-search">&nbsp;</span>
                 <span class="label-icon">Search</span>
               </button>
+              </form>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- State Information -->
+    <div id="state-div"></div>
 
     <!-- Page Content -->
     <div class="container">
@@ -105,62 +109,8 @@
       </header>
 
       <!-- Page Features -->
-      <div class="row text-center">
-        <div class="col-lg-3 col-md-6 mb-4">
-          <div class="card-body">
-            <h4 class="card-title">nationalPark1</h4>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Explicabo magni sapiente, tempore debitis beatae culpa natus
-              architecto.
-            </p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Find Out More!</a>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 mb-4">
-          <div class="card-body">
-            <h4 class="card-title">nationalPark2</h4>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Explicabo magni sapiente, tempore debitis beatae culpa natus
-              architecto.
-            </p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Find Out More!</a>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 mb-4">
-          <div class="card-body">
-            <h4 class="card-title">nationalPark3</h4>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Explicabo magni sapiente, tempore debitis beatae culpa natus
-              architecto.
-            </p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Find Out More!</a>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 mb-4">
-          <div class="card-body">
-            <h4 class="card-title">nationalPark4</h4>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Explicabo magni sapiente, tempore debitis beatae culpa natus
-              architecto.
-            </p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Find Out More!</a>
-          </div>
-        </div>
+      <div class="row text-center" id="cardContainer">
+        
       </div>
       <!-- /.row -->
     </div>
@@ -176,5 +126,65 @@
       </div>
       <!-- /.container -->
     </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    function searchState(state) {
+      // Querying the bandsintown api for the selected state, the ?app_id parameter is required, but can equal anything
+      var queryURL =
+        "https://developer.nps.gov/api/v1/parks?stateCode=" +
+        state +
+        "&api_key=VQJk51h4AnpnFoFmihiBzfzraIjCVrU1CkqeRXXP";
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+      }).then(function(response) {
+        // Printing the entire object to console
+        console.log(response);
+
+        var numStates = $("#state-count").val();
+        $("#cardContainer").empty();
+
+        for (var i = 0; i < response.data.length; i++) {
+          //     // Constructing HTML containing the state information
+
+       
+          var card = `<div class="col-lg-3 col-md-6 mb-4">
+    
+          <div class="card-body">
+            <h4 class="card-title">` + response.data[i].fullName  +  ` </h4>
+            <p class="card-text">
+              ` + response.data[i].description.substring(0, 200) + `... 
+            </p>
+          </div>
+          <div class="card-footer">
+            <a href="` + response.data[i].url + `" target="_blank" class="btn btn-primary">Add to Wishlist</a>
+          </div>
+        </div>
+        `;
+         
+
+          // Empty the contents of the state-div, append the new state content
+         
+          $("#cardContainer").append(
+            card
+          );
+        }
+      });
+    }
+
+    // Event handler for user clicking the select-state button
+    $("#select-state").on("click", function(event) {
+      // Preventing the button from trying to submit the form
+      event.preventDefault();
+      // Storing the state name
+      var inputstate = $("#state-input")
+        .val()
+        .trim();
+
+      // Running the searchState function(passing in the state as an argument)
+      searchState(inputstate);
+    });
+  </script>
   </body>
 </html>
