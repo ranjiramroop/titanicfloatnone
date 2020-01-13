@@ -12,21 +12,64 @@
     <title>National Parks Finder</title>
 
     <!-- Latest compiled and minified CSS & JS -->
-    <link
-      href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/flatly/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="css/styles.css"
-      media="screen"
-      title="no title"
-    />
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="css/heroic-features.css" rel="stylesheet" />
+
+    <!-- Added link to custom search bar CSS -->
+    <link href="css/search-filter.css" rel="stylesheet" />
   </head>
 
   <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#"
+          ><img src="npsnavbar.png" width="4%" height="4%"> National Parks Finder</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarResponsive"
+          aria-controls="navbarResponsive"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#"
+                >Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/wishlist.html">Wishlist</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/blog.html">Reviews</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/reviewer-manager.html">Profile</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <br />
+   
+  </head>
+
+  <body>
+    <br>
+    <br>
+    <br>
     <div class="container blog">
       <div class="row">
         <div class="col-md-2 col-sm-2">
@@ -34,17 +77,15 @@
         </div>
         <div class="col-md-2 col-sm-2">
           <a class="btn btn-light" href="/reviewer-manager.html"
-            >Manage Reviewers</a
-          >
+            >Reviewers</a>
         </div>
+        <div class="col-md-2 col-sm-2"></div>
+        <a class="btn btn-light" href="/index.html">Home Page</a>
+        <div class="col-md-2 col-sm-2">
+
+      <div class="col-md-2 col-sm-2">
+        <a class="btn btn-light" href="/wishlist.html">Wishlist</a>
       </div>
-      <div class="row">
-        <div class="col-md-2 col-sm-2">
-          <a class="btn btn-light" href="/index.html">Go to Home Page</a>
-        </div>
-        <div class="col-md-2 col-sm-2">
-          <a class="btn btn-light" href="/wishlist.html">Go to Wishlist</a>
-        </div>
       </div>
       <div class="row">
         <div class="col-md-12 blog-container"></div>
