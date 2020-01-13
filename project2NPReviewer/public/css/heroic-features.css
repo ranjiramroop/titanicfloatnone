@@ -4,5 +4,14 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-heroic-features/blob/master/LICENSE)
  */
 body {
+  background:url("../ep_naturalwhite.png");
   padding-top: 56px;
+}
+
+.fixed-top{
+  box-shadow: 5px 5px 12px grey;
+}
+
+header{
+  text-shadow: 1px 1px grey;
 }

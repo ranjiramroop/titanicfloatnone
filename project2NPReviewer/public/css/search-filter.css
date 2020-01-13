@@ -24,6 +24,7 @@
     color: #373a3c;
     background-color: #fff;
     border: 1px solid #ccc;
+    float: right;
 }
 .searchFilter .btn-secondary:hover {
     color: #373a3c;
@@ -159,4 +160,8 @@
   .searchFilter .dropdown-menu-right {
   right: 0px;
   }
+}
+
+.input-group{
+  display:inherit;
 }
