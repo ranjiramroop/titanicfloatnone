@@ -20,7 +20,7 @@
     height: 50px;
     min-width: 20px;
 }
-.searchFilter .btn-secondary {
+.searchFilter .btn-dark {
     color: #373a3c;
     background-color: #fff;
     border: 1px solid #ccc;
