@@ -126,7 +126,7 @@ var renderWishList = function(wishes) {
     //     // Constructing HTML containing the state information
     console.log(wishes);
     var card =
-      `<div class="col-lg-3 col-md-6 mb-4">
+      `<div class="col-lg-5 col-md-6 mb-4">
 
         <div class="card-body">
           <h4 class="card-title">` +
@@ -138,7 +138,7 @@ var renderWishList = function(wishes) {
       `...
           </p>
         </div>
-        <div class="card-footer">
+        <div class="card-footer wishlist-footer">
           <a href="` +
       wishes[i].url +
       `" target="_blank" class="btn btn-primary">Go to Website</a><br><br>

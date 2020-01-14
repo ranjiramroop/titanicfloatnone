@@ -50,3 +50,7 @@ button.edit {
   box-shadow: 5px 5px 12px grey;
 }
 
+.wishlist-footer {
+  display: flex;
+  justify-content: center;
+}
