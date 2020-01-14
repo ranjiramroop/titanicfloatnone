@@ -183,9 +183,9 @@ $(document).on("click", ".wishlist", function (event){
   
   var data = {
     apiID: $(this).attr("value"),
-    fullName: $(".wishlist").parent().siblings().children("h4").text(),
-    description: $(".wishlist").parent().siblings().children("p").text(),
-    url: $(".wishlist").siblings("a").attr("href")
+    fullName: $(this).parent().siblings().children("h4").text(),
+    description: $(this).parent().siblings().children("p").text(),
+    url: $(this).siblings("a").attr("href")
   }
   $.post("/api/wishlist", data)
 })

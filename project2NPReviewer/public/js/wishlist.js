@@ -128,26 +128,26 @@ var renderWishList = function(wishes) {
     var card =
       `<div class="col-lg-3 col-md-6 mb-4">
 
-    <div class="card-body">
-      <h4 class="card-title">` +
-      wishes.fullName +
+        <div class="card-body">
+          <h4 class="card-title">` +
+      wishes[i].fullName +
       ` </h4>
-      <p class="card-text">
-        ` +
-      wishes.description.substring(0, 200) +
+          <p class="card-text">
+            ` +
+      wishes[i].description.substring(0, 200) +
       `...
-      </p>
-    </div>
-    <div class="card-footer">
-      <a href="` +
-      wishes.url +
+          </p>
+        </div>
+        <div class="card-footer">
+          <a href="` +
+      wishes[i].url +
       `" target="_blank" class="btn btn-primary">Go to Website</a><br><br>
-      <btn class="btn btn-primary wishlist" value='${wishes.apiID}'>Save to Wishlist</btn>
-    </div>
-  </div>
-  `;
+          <btn class="btn btn-primary wishlist" value='${wishes[i].apiID}'>Save to Wishlist</btn>
+        </div>
+      </div>
+      `;
 
-    $("#cardContainer").append(card);
+    $(".cardContainer").append(card);
   }
 };
 // Gets wishes from the db and renders them to the sidebar
