@@ -10,24 +10,24 @@ var activeWish = {};
 // A function for getting all wishes from the db
 var getWishes = function() {
   return $.ajax({
-    url: "/api/wishes",
+    url: "/api/wishlistpage",
     method: "GET"
   });
 };
 
 // A function for saving a wish to the db
-var saveWish = function(wish) {
-  return $.ajax({
-    url: "/api/wishes",
-    data: wish,
-    method: "POST"
-  });
-};
+// var saveWish = function(wish) {
+//   return $.ajax({
+//     url: "/api/wishlist",
+//     data: wish,
+//     method: "POST"
+//   });
+// };
 
 // A function for deleting a wish from the db
 var deleteWish = function(id) {
   return $.ajax({
-    url: "api/wishes/" + id,
+    url: "api/wishlistpage/" + id,
     method: "DELETE"
   });
 };
@@ -107,26 +107,53 @@ var renderWishList = function(wishes) {
   $wishList.empty();
 
   var wishListItems = [];
+  //   for (var i = 0; i < wishes.length; i++) {
+  //     var wish = wishes[i];
 
+  //     var $li = $("<li class='list-group-item'>").data(wish);
+  //     var $span = $("<span>").text(wish.title);
+  //     var $delBtn = $(
+  //       "<i class='fas fa-trash-alt float-right text-danger delete-wish'>"
+  //     );
+
+  //     $li.append($span, $delBtn);
+  //     wishListItems.push($li);
+  //   }
+
+  //   $wishList.append(wishListItems);
+  // };
   for (var i = 0; i < wishes.length; i++) {
-    var wish = wishes[i];
+    //     // Constructing HTML containing the state information
+    console.log(wishes);
+    var card =
+      `<div class="col-lg-3 col-md-6 mb-4">
 
-    var $li = $("<li class='list-group-item'>").data(wish);
-    var $span = $("<span>").text(wish.title);
-    var $delBtn = $(
-      "<i class='fas fa-trash-alt float-right text-danger delete-wish'>"
-    );
+    <div class="card-body">
+      <h4 class="card-title">` +
+      wishes.fullName +
+      ` </h4>
+      <p class="card-text">
+        ` +
+      wishes.description.substring(0, 200) +
+      `...
+      </p>
+    </div>
+    <div class="card-footer">
+      <a href="` +
+      wishes.url +
+      `" target="_blank" class="btn btn-primary">Go to Website</a><br><br>
+      <btn class="btn btn-primary wishlist" value='${wishes.apiID}'>Save to Wishlist</btn>
+    </div>
+  </div>
+  `;
 
-    $li.append($span, $delBtn);
-    wishListItems.push($li);
+    $("#cardContainer").append(card);
   }
-
-  $wishList.append(wishListItems);
 };
-
 // Gets wishes from the db and renders them to the sidebar
 var getAndRenderWishes = function() {
   return getWishes().then(function(data) {
+    console.log(data);
     renderWishList(data);
   });
 };

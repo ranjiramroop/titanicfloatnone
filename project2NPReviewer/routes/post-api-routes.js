@@ -29,7 +29,7 @@ module.exports = function(app) {
   });
 
   app.get("/api/wishlistpage", function(req, res) {
-    db.wishlists.findAll({}).then(function(dbPost) {
+    db.wishlist.findAll({}).then(function(dbPost) {
       res.json(dbPost);
     });
   });
@@ -55,9 +55,13 @@ module.exports = function(app) {
     });
   });
   app.post("/api/wishlist", function(req, res) {
+    console.log(res);
     db.wishlist
       .create({
-        apiID: req.body.apiID
+        apiID: req.body.apiID,
+        fullName: req.body.fullName,
+        description: req.body.description,
+        url: req.body.url
       })
       .then(function(dbPost) {
         res.json(dbPost);

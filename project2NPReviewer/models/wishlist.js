@@ -3,6 +3,19 @@ module.exports = function(sequelize, DataTypes) {
     apiID: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    fullName: {
+      type: DataTypes.STRING
+
+      // allowNull: false
+    },
+    description: {
+      type: DataTypes.TEXT
+      // allowNull: false
+    },
+    url: {
+      type: DataTypes.STRING
+      // allowNull: false
     }
   });
 
