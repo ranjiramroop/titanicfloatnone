@@ -142,7 +142,6 @@ var renderWishList = function(wishes) {
           <a href="` +
       wishes[i].url +
       `" target="_blank" class="btn btn-primary">Go to Website</a><br><br>
-          <btn class="btn btn-primary wishlist" value='${wishes[i].apiID}'>Save to Wishlist</btn>
         </div>
       </div>
       `;
